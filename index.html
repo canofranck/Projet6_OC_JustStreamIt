@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>justStreamit</title>
+    <link href="style.css" rel="stylesheet"/>
+    
+       
+    
+</head>
+<body>
+    <div id="header">
+        <div>
+            <div id="title">justStreamit</div>
+        </div>
+        <div id="menu">
+            <a href="#">Accueil</a>
+            <a href="#">Catégories</a>
+        </div>
+    </div>
+
+    <section class="main-bestcontent" id="best-movie">
+        <div class="video-container">
+            <div id="video-details">
+                <h2 class="bestcontent-title" id="top-title">""</h2>
+                <button class="button">Play</button>
+                <button class="button">More Info</button>
+                <div class="best-content-description">
+                    <p class="best-description" id="top-description">""</p>
+                </div>
+            </div>
+            <div class="bestcontent-image">
+                <img src="images/no_image.jpg" alt="Nom de la vidéo">
+            </div>
+        </div>
+
+        <div class="category-container">
+            <div class="category">
+                <div class="category-title">Films les mieux notés</div>
+                
+                <!-- Carousel 1 -->
+                <div class="carousel1">
+                    <!-- Flèche gauche -->
+                    <div class="arrow" onclick="prevSlide()">❮</div>
+    
+                    <!-- Ajoutez ici 4 images fictives -->
+                    <div class="bestnote-image">
+                        <img src="images/no_image.jpg" alt="Film 1">
+                    </div>
+                    <div class="bestnote2-image">
+                        <img src="images/no_image.jpg" alt="Film 2">
+                    </div>
+    
+                    <!-- Flèche droite -->
+                    <div class="arrow" onclick="nextSlide()">❯</div>
+                </div>
+    
+                <!-- Carousel 2 -->
+                <div class="carousel2">
+                    <!-- Flèche gauche -->
+                    <div class="arrow" onclick="prevSlide()">❮</div>
+    
+                    <!-- Ajoutez ici 4 images fictives -->
+                    <img src="images/no_image.jpg" alt="Film 1">
+                    <img src="images/no_image.jpg" alt="Film 2">
+    
+                    <!-- Flèche droite -->
+                    <div class="arrow" onclick="nextSlide()">❯</div>
+                </div>
+    
+                <!-- Carousel 3 -->
+                <div class="carousel3">
+                    <!-- Flèche gauche -->
+                    <div class="arrow" onclick="prevSlide()">❮</div>
+    
+                    <!-- Ajoutez ici 4 images fictives -->
+                    <img src="images/no_image.jpg" alt="Film 1">
+                    <img src="images/no_image.jpg" alt="Film 2">
+    
+                    <!-- Flèche droite -->
+                    <div class="arrow" onclick="nextSlide()">❯</div>
+                </div>
+    
+                <!-- Carousel 4 -->
+                <div class="carousel4">
+                    <!-- Flèche gauche -->
+                    <div class="arrow" onclick="prevSlide()">❮</div>
+    
+                    <!-- Ajoutez ici 4 images fictives -->
+                    <img src="images/no_image.jpg" alt="Film 1">
+                    <img src="images/no_image.jpg" alt="Film 2">
+    
+                    <!-- Flèche droite -->
+                    <div class="arrow" onclick="nextSlide()">❯</div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+ <!-- Code du modal -->
+ <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title">Titre du film</h3>
+        <div class="modal-cover-image">
+            <img alt="movie cover" id="modal-cover" src="images/no_image.jpg">
+        </div>
+        <p class="genres" id="modal-genres">""</p><br>
+        <p id="modal-Release Date">""</p><br> 
+        <p id="modal-rating">""</p><br>
+        <strong>IMDb: </strong>
+        <p id="modal-imdb">""</p><br>
+        <strong>Directed by: </strong>
+        <p id="modal-directors">""</p><br>
+        <strong>Starring: </strong>
+        <p id="modal-cast">""</p><br>
+        <p id="modal-duration">""</p><br>
+        <strong>Countries: </strong>
+        <p id="modal-country">""</p><br>
+        <strong>Box office: </strong>
+        <p id="modal-box-office">""</p><br><br>
+        <strong>Plot summary: </strong><br>
+        <p class="plot" id="modal-desc">""</p>
+
+
+        <!-- <p id="modal-description">Description détaillée du film.</p> -->
+        
+        
+    </div>
+</div>
+<script src="script2.js" defer></script>     
+</body>
+</html>
