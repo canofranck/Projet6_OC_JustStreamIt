@@ -6,7 +6,8 @@ window.addEventListener('load', () => {
     CarrouselCategory("");
     CarrouselCategory("crime");
     CarrouselCategory("sci-fi");
-    CarrouselCategory("thriller");
+    // CarrouselCategory("thriller");
+    CarrouselCategory("animation");
     });
  
 function BestNoteMovie() {
@@ -82,11 +83,10 @@ async function GetCategories(name) {
     let nombremovies;
     if (name === "") {
         nombremovies = 8;
-        
     } else {
         nombremovies = 7;
     }
-    console.log("apres le if pour :"+name+" dans get "+nombremovies)
+    
     const ResultsCategories = await fetch(Url + "?sort_by=-imdb_score&genre=" + name);
     if (!ResultsCategories.ok)
         return;
@@ -122,12 +122,10 @@ async function GetCategories(name) {
             };
         }
     }));
-    console.log(nombremovies)
-    console.log("name : "+name+"length movie : "+ moviesData.length)
     if (name === "" && nombremovies === 8 ) {
         moviesData.splice(0, 1);
     }
-    console.log("length movie : "+ moviesData.length)
+    
     return moviesData;
 }
 
@@ -141,8 +139,7 @@ async function CarrouselCategory(category) {
     if (category === ""){
         category = "Best";
     }
-    console.log(" category " +category)
-    console.log("catgeory name "+categoryName)
+    
     category = category.charAt(0).toUpperCase() + category.slice(1);
 
     const section = document.createElement("section");
@@ -164,7 +161,6 @@ async function CarrouselCategory(category) {
     carrouselContent.setAttribute("id", `${DisplayCategoryName}-movies`);
     carrouselContent.style.left = "75px"; 
     document.querySelector('.carrousels').appendChild(section);
-    console.log("avant l appel a la fonction nom de la category : "+category)
     const movies = await  GetCategories(categoryName);
 
     let i = 0;
