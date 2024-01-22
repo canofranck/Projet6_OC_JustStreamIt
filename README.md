@@ -57,8 +57,9 @@ Clone ou telecharger  [API OCMovies](https://github.com/OpenClassrooms-Student-C
 
 ouvrir la page `index.html` avec un navigateur internet.
 
-#### ii. Exemple de Rapports :
-![]()
+#### apercu de l application :
+
+![gif](images/justStreamit.gif)
 
 
-![]()
+
