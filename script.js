@@ -1,12 +1,12 @@
 /* jshint esversion: 9 */
 const Url = "http://localhost:8000/api/v1/titles/";
-let total;
+let total=7;
 window.addEventListener('load', () => {
     BestNoteMovie();
     CarrouselCategory("");
     CarrouselCategory("crime");
-    CarrouselCategory("sci-fi");
-    CarrouselCategory("thriller");
+    // CarrouselCategory("sci-fi");
+    // CarrouselCategory("thriller");
     });
  
 function BestNoteMovie() {
@@ -78,24 +78,26 @@ function openModal(id) {
 }
 
 async function GetCategories(name) {
-    const ResultsCategories = await fetch(Url + "?sort_by=-imdb_score&genre=" + name);
     
+    let nombremovies;
     if (name === "") {
-        total = 8;
+        nombremovies = 8;
+        
     } else {
         total = 7;
     }
-    console.log("total : "+ total + "   name : "+name)
+    console.log("apres le if pour :"+name+" dans get "+total)
+    const ResultsCategories = await fetch(Url + "?sort_by=-imdb_score&genre=" + name);
     if (!ResultsCategories.ok)
         return;
 
     const data = await ResultsCategories.json();
     let moviesData = Array(...data.results);
 
-    if (moviesData.length < total) {
+    if (moviesData.length < nombremovies) {
         try {
             let ResultsCategories2 = await (await fetch(data.next)).json();
-            moviesData.push(...Array(...ResultsCategories2.results).slice(0, total - moviesData.length));
+            moviesData.push(...Array(...ResultsCategories2.results).slice(0, nombremovies - moviesData.length));
         } catch (error) {
             console.error("Error fetching additional data:", error);
         }
@@ -113,18 +115,19 @@ async function GetCategories(name) {
                 image_url: movie.image_url,
             };
         } catch (error) {
-            console.error("Erreur lors du chargement de l'image :", error.message);
+            console.error("Erreur loading image :", error.message);
             return {
                 ...movie,
                 image_url: "images/no_image.jpg", // Remplacer par l'image de remplacement en cas d'erreur
             };
         }
     }));
-    console.log("avant" + moviesData.length+ "   name : "+name)
-    if (name == "" ) {
+    console.log(nombremovies)
+    console.log("name : "+name+"length movie : "+ moviesData.length)
+    if (name === "" && nombremovies === 8 ) {
         moviesData.splice(0, 1);
     }
-    console.log("apres : "+moviesData.length+ "   name : "+name)
+    console.log("length movie : "+ moviesData.length)
     return moviesData;
 }
 
@@ -135,9 +138,11 @@ async function CarrouselCategory(category) {
     let categoryName = category;
     let DisplayCategoryName = category;
     
-    if (category == ""){
+    if (category === ""){
         category = "Best";
     }
+    console.log(" category " +category)
+    console.log("catgeory name "+categoryName)
     category = category.charAt(0).toUpperCase() + category.slice(1);
 
     const section = document.createElement("section");
@@ -159,7 +164,7 @@ async function CarrouselCategory(category) {
     carrouselContent.setAttribute("id", `${DisplayCategoryName}-movies`);
     carrouselContent.style.left = "75px"; 
     document.querySelector('.carrousels').appendChild(section);
-
+    console.log("avant l appel a la fonction nom de la category : "+category)
     const movies = await  GetCategories(categoryName);
 
     let i = 0;
@@ -196,7 +201,6 @@ async function CarrouselCategory(category) {
     
     const controls = document.createElement("div");
     controls.classList.add("controls");
-    console.log("movies.lentgh "+movies.length+" total = "+total+ " catgory name : "+categoryName)
     if (movies.length >= 5) {
         const leftButton = createControlButton('left', '❮', `CarrouselRight("${DisplayCategoryName}")`, DisplayCategoryName);
         const rightButton = createControlButton('right', '❯', `CarrouselLeft("${DisplayCategoryName}")`, DisplayCategoryName);
