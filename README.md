@@ -1,4 +1,4 @@
-![chess_club](imgages/juststreamit.png)
+![justsreamit](images/juststreamit.png)
 
 # Projet 6 Développez une interface utilisateur pour une application web Python
 ***Application Web de visualisation de films JustStreamIt.***
@@ -58,7 +58,7 @@ Clone ou telecharger  [API OCMovies](https://github.com/OpenClassrooms-Student-C
 ouvrir la page `index.html` avec un navigateur internet.
 
 #### ii. Exemple de Rapports :
-![report_player](_img/reports_player.jpg)
+![]()
 
 
-![report_round](_img/reports_round.jpg)
+![]()

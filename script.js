@@ -4,34 +4,11 @@ let total;
 window.addEventListener('load', () => {
     BestNoteMovie();
     CarrouselCategory("");
-    CarrouselCategory("comedy");
     CarrouselCategory("crime");
-    CarrouselCategory("animation");
-    CarrouselCategory("adventure");
-    CarrouselCategory("biography");
-    CarrouselCategory("documentary");
-    CarrouselCategory("drama");
-    CarrouselCategory("family");
-    CarrouselCategory("fantasy");
-    CarrouselCategory("film_noir");
-    CarrouselCategory("history");
-    CarrouselCategory("horror");
-    CarrouselCategory("music");
-    CarrouselCategory("musical");
-    CarrouselCategory("mystery");
-    CarrouselCategory("news");
-    CarrouselCategory("reality-tv");
-    CarrouselCategory("romance");
     CarrouselCategory("sci-fi");
-    CarrouselCategory("sport");
     CarrouselCategory("thriller");
-    CarrouselCategory("war");
-    CarrouselCategory("western");
-    
-    
-        });
+    });
  
-        
 function BestNoteMovie() {
     let bestMovieTitle = document.getElementById('top-title');
     let bestImg = document.getElementsByClassName('bestcontent-image')[0].getElementsByTagName("img")[0];
@@ -98,19 +75,17 @@ function openModal(id) {
             modal.style.display = "none";
     };
 });
-        
 }
 
 async function GetCategories(name) {
     const ResultsCategories = await fetch(Url + "?sort_by=-imdb_score&genre=" + name);
     
-
     if (name === "") {
         total = 8;
     } else {
         total = 7;
     }
-
+    console.log("total : "+ total + "   name : "+name)
     if (!ResultsCategories.ok)
         return;
 
@@ -121,12 +96,11 @@ async function GetCategories(name) {
         try {
             let ResultsCategories2 = await (await fetch(data.next)).json();
             moviesData.push(...Array(...ResultsCategories2.results).slice(0, total - moviesData.length));
-            console.log("Avant modification :", moviesData);
         } catch (error) {
             console.error("Error fetching additional data:", error);
         }
     }
-
+    
     // Parcourir moviesData et gérer les erreurs d'image
     moviesData = await Promise.all(moviesData.map(async movie => {
         try {
@@ -146,8 +120,11 @@ async function GetCategories(name) {
             };
         }
     }));
-    console.log("APRES modification :", moviesData);
-
+    console.log("avant" + moviesData.length+ "   name : "+name)
+    if (name == "" ) {
+        moviesData.splice(0, 1);
+    }
+    console.log("apres : "+moviesData.length+ "   name : "+name)
     return moviesData;
 }
 
@@ -193,7 +170,6 @@ async function CarrouselCategory(category) {
 
         const movieCover = document.createElement("img");
         movieCover.setAttribute("alt", movie.title);
-        // console.log("titre" + movie.title +"  url" + movie.image_url)
         movieCover.src = movie.image_url;
         box.appendChild(movieCover);
 
@@ -204,11 +180,6 @@ async function CarrouselCategory(category) {
         movieTitle.classList.add('centered-movie-title');
         movieTitle.innerHTML = movie.title;
         overlay.appendChild(movieTitle);
-
-        // const playButton = document.createElement("button");
-        // playButton.classList.add("overlay-button");
-        // playButton.innerHTML = 'Play';
-        // overlay.appendChild(playButton);
 
         const modalButton = document.createElement("button");
         modalButton.classList.add("overlay-button");
@@ -225,11 +196,8 @@ async function CarrouselCategory(category) {
     
     const controls = document.createElement("div");
     controls.classList.add("controls");
-    // console.log(movies.length);
-    // console.log(total);
-    
-
-    if (movies.length >= total) {
+    console.log("movies.lentgh "+movies.length+" total = "+total+ " catgory name : "+categoryName)
+    if (movies.length >= 5) {
         const leftButton = createControlButton('left', '❮', `CarrouselRight("${DisplayCategoryName}")`, DisplayCategoryName);
         const rightButton = createControlButton('right', '❯', `CarrouselLeft("${DisplayCategoryName}")`, DisplayCategoryName);
         controls.appendChild(leftButton);
@@ -255,9 +223,8 @@ function CarrouselLeft(category) {
 
     // Déplace le carrousel vers la droite
     if (parseInt(carrouselContent.style.left) - (boxWidth * imagesToMove) >= -740) {
-    {carrouselContent.style.left = (parseInt(carrouselContent.style.left) - (boxWidth * imagesToMove)) + "px";
+        carrouselContent.style.left = (parseInt(carrouselContent.style.left) - (boxWidth * imagesToMove)) + "px";
     }
-}
 }
 
 
