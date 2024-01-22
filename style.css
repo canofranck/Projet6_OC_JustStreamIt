@@ -164,8 +164,8 @@ body {
 
 }
 
-.synopsis {
-    font-style: oblique;
+.plot {
+    font-style: italic;
 }
 
 /* Overlay */

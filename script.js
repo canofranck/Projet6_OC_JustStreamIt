@@ -4,7 +4,31 @@ let total;
 window.addEventListener('load', () => {
     BestNoteMovie();
     CarrouselCategory("");
-   
+    CarrouselCategory("comedy");
+    CarrouselCategory("crime");
+    CarrouselCategory("animation");
+    CarrouselCategory("adventure");
+    CarrouselCategory("biography");
+    CarrouselCategory("documentary");
+    CarrouselCategory("drama");
+    CarrouselCategory("family");
+    CarrouselCategory("fantasy");
+    CarrouselCategory("film_noir");
+    CarrouselCategory("history");
+    CarrouselCategory("horror");
+    CarrouselCategory("music");
+    CarrouselCategory("musical");
+    CarrouselCategory("mystery");
+    CarrouselCategory("news");
+    CarrouselCategory("reality-tv");
+    CarrouselCategory("romance");
+    CarrouselCategory("sci-fi");
+    CarrouselCategory("sport");
+    CarrouselCategory("thriller");
+    CarrouselCategory("war");
+    CarrouselCategory("western");
+    
+    
         });
  
         
@@ -169,7 +193,7 @@ async function CarrouselCategory(category) {
 
         const movieCover = document.createElement("img");
         movieCover.setAttribute("alt", movie.title);
-        console.log("titre" + movie.title +"  url" + movie.image_url)
+        // console.log("titre" + movie.title +"  url" + movie.image_url)
         movieCover.src = movie.image_url;
         box.appendChild(movieCover);
 
@@ -180,6 +204,11 @@ async function CarrouselCategory(category) {
         movieTitle.classList.add('centered-movie-title');
         movieTitle.innerHTML = movie.title;
         overlay.appendChild(movieTitle);
+
+        // const playButton = document.createElement("button");
+        // playButton.classList.add("overlay-button");
+        // playButton.innerHTML = 'Play';
+        // overlay.appendChild(playButton);
 
         const modalButton = document.createElement("button");
         modalButton.classList.add("overlay-button");
@@ -196,8 +225,8 @@ async function CarrouselCategory(category) {
     
     const controls = document.createElement("div");
     controls.classList.add("controls");
-    console.log(movies.length);
-    console.log(total);
+    // console.log(movies.length);
+    // console.log(total);
     
 
     if (movies.length >= total) {
