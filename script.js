@@ -5,8 +5,8 @@ window.addEventListener('load', () => {
     BestNoteMovie();
     CarrouselCategory("");
     CarrouselCategory("crime");
-    // CarrouselCategory("sci-fi");
-    // CarrouselCategory("thriller");
+    CarrouselCategory("sci-fi");
+    CarrouselCategory("thriller");
     });
  
 function BestNoteMovie() {
@@ -84,9 +84,9 @@ async function GetCategories(name) {
         nombremovies = 8;
         
     } else {
-        total = 7;
+        nombremovies = 7;
     }
-    console.log("apres le if pour :"+name+" dans get "+total)
+    console.log("apres le if pour :"+name+" dans get "+nombremovies)
     const ResultsCategories = await fetch(Url + "?sort_by=-imdb_score&genre=" + name);
     if (!ResultsCategories.ok)
         return;
