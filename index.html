@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>justStreamit</title>
-    <link href="style.css" rel="stylesheet"/>
-    
-       
-    
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="header">
-        <div>
-            <img src="images/juststreamit.png" alt="logo" width=25% height=25%>
-            
-        </div>
-        <div id="menu">
-            <a href="index.html">Accueil</a>
-            <a href="#">Catégories</a>
-        </div>
-    </div>
 
+<body>
+    <header>
+        <div id="header">
+            <div>
+                <img src="images/juststreamit.png" width=25% height=25% alt="logo">
+            
+            </div>
+            <nav id="menu">
+                <a href="index.html">Accueil</a>
+             <a href="#categories-anchor">Catégories</a>
+            </nav>
+        </div>
+    </header>
+<main>
     <section class="main-bestcontent" id="best-movie">
         <div class="video-container">
             <div id="video-details">
                 <h2 class="bestcontent-title" id="top-title">""</h2>
-                
-                <button class="button">More Info</button>
+                    
+                <button class="button">More Info...</button>
                 <div class="best-content-description">
                     <p class="best-description" id="top-description">""</p>
                 </div>
@@ -36,10 +36,10 @@
             </div>
         </div>
     </section>
-    <div class="carrousels"></div>
-    <div id="selectedCategoriesCarrousels" class="carrousels"></div>
-
-            
+<div id="categories-anchor"></div>
+<div class="carrousels"></div>
+    
+</main>
     
  <!-- Code du modal -->
  <div id="myModal" class="modal">
@@ -51,8 +51,8 @@
         </div>
         <strong>Genre : </strong>
         <p id="modal-genres">""</p><br>
-        <strong>Release date : </strong>
-        <p id="modal-Release Date">""</p><br>
+        <strong>Release-date : </strong>
+        <p id="modal-Release-Date">""</p><br>
         <strong>Rating : </strong>
         <p id="modal-rating">""</p><br>
         <strong>Imdb : </strong>
