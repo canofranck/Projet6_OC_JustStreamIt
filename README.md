@@ -27,18 +27,7 @@ Dans Windows Powershell, naviguer vers le dossier souhaité.
 
      git clone https://github.com/canofranck/Projet6_OC_JustStreamIt
 
-###### Activer l'environnement virtuel
-    cd Repertoire_du_projet
-    python -m venv env 
-    env\scripts\activate
-    
-###### Installer les packages requis
-    pip install -r requirements.txt
-
-###### Lancer le programme
-    python main.py
-
-
+    intaller les fichiers dans le répertoire de votre choix
 
 <div id='chapitre2'></div>
 
@@ -50,12 +39,14 @@ Dans Windows Powershell, naviguer vers le dossier souhaité.
 
 Clone ou telecharger  [API OCMovies](https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR).
 
+Suivre les instructions d'installation de l API, puis lancez son serveur
+
 
 <div id='chapitre3'></div>
 
 ## 3. Utilisation du programme
 
-ouvrir la page `index.html` avec un navigateur internet.
+Dans le repertoire ou vous avez mis le projet ouvrir le fichier  `index.html` avec un navigateur internet.
 
 #### apercu de l application :
 
