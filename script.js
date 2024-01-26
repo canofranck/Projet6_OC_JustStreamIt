@@ -47,7 +47,7 @@ function openModal(id) {
             document.getElementById('modal-cover').src = data.image_url;
             document.getElementById('modal-title').innerHTML = data.title;
             document.getElementById('modal-genres').innerHTML = data.genres;
-            document.getElementById('modal-Release Date').innerHTML = data.date_published;
+            document.getElementById('modal-Release-Date').innerHTML = data.date_published;
             document.getElementById('modal-rating').innerHTML = data.rated;
             document.getElementById('modal-imdb').innerHTML = data.imdb_score + " / 10";
             document.getElementById('modal-directors').innerHTML = data.directors;
